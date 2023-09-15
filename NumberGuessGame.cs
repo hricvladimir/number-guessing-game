@@ -76,17 +76,15 @@ namespace ConsoleApplication1.Properties
         {
             if (!_isPlaying || _numberOfGuesses >= _guessLimit || _isGameWon)
             {
+                _isPlaying = false;
                 return false;
             }
             
-            if (number == this._randomNumber)
-            {
-                _isPlaying = false;
-                _isGameWon = true;
-                return true;
-            }
-
-            return false;
+            if (number != this._randomNumber) return false;
+            
+            _isPlaying = false;
+            _isGameWon = true;
+            return true;
         }
         
         
