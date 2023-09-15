@@ -11,7 +11,7 @@ namespace ConsoleApplication1
         {
             if (!File.Exists(_path))
             {
-                // Create a file to write to.
+                
                 using (var sw = File.CreateText(_path))
                 {
                     sw.WriteLine("name,score,guessLimit,numberOfGuesses,time");
@@ -21,7 +21,7 @@ namespace ConsoleApplication1
             }
             else
             {
-                // Open a file to write to.
+                
                 using (var sw = new StreamWriter(_path, true))
                 {
                     var score = CalculateScore(guessLimit, numberOfGuesses, time);
@@ -32,12 +32,12 @@ namespace ConsoleApplication1
 
         public double CalculateScore(int guessLimit, int numberOfGuesses, double time)
         {
-            // Define weights for each parameter (you can adjust these as needed)
+            
             var guessLimitWeight = 0.3;
             var numberOfGuessesWeight = 0.4;
             var timeWeight = 0.3;
 
-            // Calculate the score based on the weighted parameters
+            
             double score = (
                 (1 - (double)guessLimit / Math.Max(guessLimit, 1)) * guessLimitWeight +
                 (1 - (double)numberOfGuesses / Math.Max(numberOfGuesses, 1)) * numberOfGuessesWeight +
