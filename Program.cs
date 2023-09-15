@@ -9,7 +9,7 @@ namespace ConsoleApplication1
         public static void Main(string[] args)
         {
             var game = new NumberGuessGame();
-            
+
             Console.WriteLine("Welcome to the Number Guessing Game!");
             Console.WriteLine("Please enter your name!");
             var name = Console.ReadLine();

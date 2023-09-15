@@ -33,15 +33,14 @@ namespace ConsoleApplication1
         public double CalculateScore(int guessLimit, int numberOfGuesses, double time)
         {
             
-            var guessLimitWeight = 0.3;
-            var numberOfGuessesWeight = 0.4;
-            var timeWeight = 0.3;
-
             
+
+            var timeFactor = 10000;
+
+            // what the fuck is this piece of shit 
             double score = (
-                (1 - (double)guessLimit / Math.Max(guessLimit, 1)) * guessLimitWeight +
-                (1 - (double)numberOfGuesses / Math.Max(numberOfGuesses, 1)) * numberOfGuessesWeight +
-                (1 - (double)time / Math.Max(time, 0.001)) * timeWeight
+                (timeFactor/time) - (guessLimit*2) + numberOfGuesses*2
+                
             );
 
             return score;
