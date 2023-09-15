@@ -64,7 +64,10 @@ namespace ConsoleApplication1
             stopWatch.Stop();
             if (game.IsGameWon)
             {
-                Console.WriteLine($"You guessed the number in {game.NumberOfGuesses} guesses and you did it in {(double)(stopWatch.ElapsedMilliseconds/(double)1000)} seconds.");
+                Console.WriteLine($"You guessed the number in {game.NumberOfGuesses} guesses and you did it in {(stopWatch.ElapsedMilliseconds/(double)1000)} seconds.");
+                Score score = new Score();
+                Console.WriteLine($"Your score is: {score.CalculateScore(game.GuessLimit, game.NumberOfGuesses, stopWatch.ElapsedMilliseconds/(double)1000)}");
+                score.WriteScore(name, game.GuessLimit, game.NumberOfGuesses, stopWatch.ElapsedMilliseconds/(double)1000);
             }
         }
     }
