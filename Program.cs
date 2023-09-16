@@ -9,11 +9,15 @@ namespace ConsoleApplication1
         public static void Main(string[] args)
         {
             var game = new NumberGuessGame();
-
+            Score scoreS = new Score();
+            
             Console.WriteLine("Welcome to the Number Guessing Game!");
             Console.WriteLine("Please enter your name!");
             var name = Console.ReadLine();
-            Console.WriteLine($"Welcome, {name}:");
+            Console.WriteLine($"Welcome, {name}!");
+            
+            var bestScore = scoreS.GetTopScoreByName(name);
+            Console.WriteLine(bestScore>0 ? $"Your best score was: {bestScore}" : "You don't have a best score. Good luck!");
             Console.WriteLine("* --------------------------- *");
             
             var stopWatch = Stopwatch.StartNew();
